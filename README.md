@@ -1,3 +1,5 @@
+# Crud users with Nextjs
+This repository features a user management interface built with Next.js, providing a full CRUD (Create, Read, Update, Delete) functionality for managing user data. The frontend is designed to offer an intuitive and responsive user experience, allowing administrators or users to easily add, view, edit, and delete user information. It communicates with a REST API, which handles the backend operations and data storage. This setup serves as a flexible and scalable solution for user administration in web applications, simplifying the management process through a modern React-based interface.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
