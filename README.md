@@ -1,14 +1,61 @@
-# Crud users with Nextjs
-This repository features a user management interface built with Next.js, providing a full CRUD (Create, Read, Update, Delete) functionality for managing user data. The frontend is designed to offer an intuitive and responsive user experience, allowing administrators or users to easily add, view, edit, and delete user information. It communicates with a REST API, which handles the backend operations and data storage. This setup serves as a flexible and scalable solution for user administration in web applications, simplifying the management process through a modern React-based interface.
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Crud.Users.Ui
+Frontend for a user management UI built with [Next.js](https://nextjs.org). The goal is to provide Create, Read, Update, and Delete operations against a REST API for user data.
 
-## Getting Started
+> **Status:** Work in progress. The repo currently contains the Next.js + TypeScript + Tailwind starter. CRUD screens and API integration are not implemented yet.
 
-First, run the development server:
+## Tech stack
+- [Next.js](https://nextjs.org) 15 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+
+## Architecture
+```mermaid
+flowchart LR
+  subgraph Client["Browser"]
+    UI["Crud.Users.Ui<br/>Next.js + React"]
+  end
+
+  subgraph Backend["API"]
+    REST["REST API<br/>Users endpoints"]
+    DB[(Database)]
+  end
+
+  UI -->|"GET /users"| REST
+  UI -->|"POST /users"| REST
+  UI -->|"PUT /users/:id"| REST
+  UI -->|"DELETE /users/:id"| REST
+  REST --> DB
+```
+
+```mermaid
+flowchart TD
+  A[User opens UI] --> B[List users]
+  B --> C{Action}
+  C -->|Create| D[Fill form → POST]
+  C -->|Edit| E[Update form → PUT]
+  C -->|Delete| F[Confirm → DELETE]
+  D --> B
+  E --> B
+  F --> B
+```
+
+## Getting started
+### Prerequisites
+- Node.js 18+ recommended
+- npm, yarn, pnpm, or bun
+
+### Install and run
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+Other package managers:
 
 ```bash
-npm run dev
-# or
 yarn dev
 # or
 pnpm dev
@@ -16,23 +63,30 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts
+| Command         | Description              |
+| --------------- | ------------------------ |
+| `npm run dev`   | Start development server |
+| `npm run build` | Production build         |
+| `npm start`     | Run production server    |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
+```
+app/
+  layout.tsx    # Root layout
+  page.tsx      # Home page
+  globals.css   # Global styles
+public/         # Static assets
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
+If you add API URLs or secrets later, use a `.env.local` file (already ignored by git):
 
-## Learn More
+```bash
+# .env.local (example — do not commit real values)
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Learn more
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
