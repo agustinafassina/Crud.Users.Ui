@@ -1,7 +1,7 @@
 # Crud.Users.Ui
 Frontend for a user management UI built with [Next.js](https://nextjs.org). The goal is to provide Create, Read, Update, and Delete operations against a REST API for user data.
 
-> **Status:** Work in progress. The repo currently contains the Next.js + TypeScript + Tailwind starter. CRUD screens and API integration are not implemented yet.
+**Status:** Work in progress. The repo currently contains the Next.js + TypeScript + Tailwind starter. CRUD screens and API integration are not implemented yet.
 
 ## Tech stack
 - [Next.js](https://nextjs.org) 15 (App Router)
@@ -86,7 +86,3 @@ If you add API URLs or secrets later, use a `.env.local` file (already ignored b
 # .env.local (example — do not commit real values)
 NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
-
-## Learn more
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Learn Next.js](https://nextjs.org/learn)
