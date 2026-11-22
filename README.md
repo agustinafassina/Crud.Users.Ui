@@ -42,7 +42,7 @@ flowchart TD
 
 ## Getting started
 ### Prerequisites
-- Node.js 18+ recommended
+- Node.js 18.18+
 - npm, yarn, pnpm, or bun
 
 ### Install and run
@@ -69,6 +69,8 @@ bun dev
 | `npm run dev`   | Start development server |
 | `npm run build` | Production build         |
 | `npm start`     | Run production server    |
+| `npm run lint`  | Run ESLint               |
+| `npm run typecheck` | Type-check with `tsc` |
 
 ## Project structure
 ```
@@ -80,9 +82,12 @@ public/         # Static assets
 ```
 
 ## Environment variables
-If you add API URLs or secrets later, use a `.env.local` file (already ignored by git):
+Copy `.env.example` to `.env.local` (ignored by git) and adjust the values:
 
 ```bash
-# .env.local (example — do not commit real values)
-NEXT_PUBLIC_API_URL=http://localhost:5000
+cp .env.example .env.local
 ```
+
+| Variable              | Description           | Example                 |
+| --------------------- | --------------------- | ----------------------- |
+| `NEXT_PUBLIC_API_URL` | Base URL of the API   | `http://localhost:5000` |
